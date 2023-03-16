@@ -10,19 +10,20 @@ import java.time.LocalDate;
  *
  * @author eduardo
  */
-public abstract class Persona extends Empleado {
+public abstract class Persona{
 
     private String nombre;
     private String apellidos;
+    private NIF nif;
 
-    public Persona(String nombre, String apellidos, String numSeguridadSocial, double salario) {
-        super(numSeguridadSocial, salario);
+    public Persona(String nombre, String apellidos,NIF nif) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.nif = nif;
     }
 
     public void renovarNIF(LocalDate fechaSolicitud) {
-
+        nif.renovar(fechaSolicitud);
     }
 
     public String getNombre() {
@@ -41,8 +42,16 @@ public abstract class Persona extends Empleado {
         this.apellidos = apellidos;
     }
 
+    public NIF getNif() {
+        return nif;
+    }
+
+    public void setNif(NIF nif) {
+        this.nif = nif;
+    }
+
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + '}';
     }
 }

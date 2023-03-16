@@ -5,35 +5,45 @@
 package hospital;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 /**
  *
  * @author eduardo
  */
 public class NIF {
-    
-    private long numero; 
+
+    private int numero;
     private char letra;
     private LocalDate fechaCaducidad;
 
-    public void crearNIF(long numero, LocalDate fechaCaducida){
-        
-    }
-    
-    private static char calcularLetra(){
-        char letra = 'a';
-        return letra;
-    }
-    
-    public void renovar(LocalDate fechaSolicitudRenovacion){
-        
+    public static Random gen = new Random();
+
+    public NIF() {
+        this.numero = gen.nextInt(1, 9);
+        this.letra = letra;
+        this.fechaCaducidad = fechaCaducidad;
     }
 
-    public long getNumero() {
+  
+    private char calcularLetra() {
+        char[] letrasDNI = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+        int calculo = numero % 23;
+        char letra = letrasDNI[calculo];
+        return letra;
+    }
+
+    public LocalDate renovar(LocalDate fechaSolicitudRenovacion) {
+        LocalDate fechaRenovacion = fechaSolicitudRenovacion.plusYears(10);
+        setFechaCaducidad(fechaRenovacion);
+        return fechaRenovacion;
+    }
+
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(long numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 

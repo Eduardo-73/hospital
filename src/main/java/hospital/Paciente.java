@@ -8,12 +8,12 @@ package hospital;
  *
  * @author eduardo
  */
-public class Paciente extends Persona {
+public class Paciente extends Persona implements Nadar{
 
     private String numeroHistoria;
 
-    public Paciente(String numeroHistorial, String nombre, String apellidos) {
-        super(nombre, apellidos);
+    public Paciente(String numeroHistorial, String nombre, String apellidos, NIF nif) {
+        super(nombre, apellidos, nif);
         this.numeroHistoria = numeroHistoria;
     }
 
@@ -32,5 +32,10 @@ public class Paciente extends Persona {
     @Override
     public String toString() {
         return "Paciente{" + "numeroHistoria=" + numeroHistoria + '}';
+    }
+
+    @Override
+    public void nadar() {
+        System.out.println("El paciente esta nadando");    
     }
 }

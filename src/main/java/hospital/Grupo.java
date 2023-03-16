@@ -4,13 +4,19 @@
  */
 package hospital;
 
+import java.util.Random;
+
 /**
  *
  * @author eduardo
  */
-public class Grupo {
+public enum Grupo {
+
+    C(17.5), D(18.0), E(18.0);
+
+    protected double irpf;
     
-    private double irpf;
-    private TipoIRPF tipo;
-    
+    private Grupo(double irpf) {
+        this.irpf = irpf;
+    }
 }
