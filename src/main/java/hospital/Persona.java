@@ -10,18 +10,19 @@ import java.time.LocalDate;
  *
  * @author eduardo
  */
-public abstract class Persona{
-    
+public abstract class Persona extends Empleado {
+
     private String nombre;
     private String apellidos;
 
-    public Persona(String nombre, String apellidos) {
+    public Persona(String nombre, String apellidos, String numSeguridadSocial, double salario) {
+        super(numSeguridadSocial, salario);
         this.nombre = nombre;
         this.apellidos = apellidos;
     }
-    
-    public void renovarNIF(LocalDate fechaSolicitud){
-        
+
+    public void renovarNIF(LocalDate fechaSolicitud) {
+
     }
 
     public String getNombre() {

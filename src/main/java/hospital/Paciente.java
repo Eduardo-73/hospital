@@ -8,12 +8,16 @@ package hospital;
  *
  * @author eduardo
  */
-public class Paciente {
-    
+public class Paciente extends Persona {
+
     private String numeroHistoria;
 
-    
-    public void tomarMedicinas(String medicina){
+    public Paciente(String numeroHistorial, String nombre, String apellidos) {
+        super(nombre, apellidos);
+        this.numeroHistoria = numeroHistoria;
+    }
+
+    public void tomarMedicinas(String medicina) {
         System.out.println("El paciente esta tomando la medicina " + medicina);
     }
 

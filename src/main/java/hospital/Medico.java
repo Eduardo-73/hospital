@@ -12,6 +12,11 @@ public class Medico extends Empleado{
     
     private String espcialidad;
 
+    public Medico(String espcialidad, String numSeguridadSocial, double salario) {
+        super(numSeguridadSocial, salario);
+        this.espcialidad = espcialidad;
+    }
+
     
     public void tratar(Paciente paciente, String medicina){
         
@@ -35,6 +40,5 @@ public class Medico extends Empleado{
         double irfp = 1;
         return irfp;
     }
-
 }
 
